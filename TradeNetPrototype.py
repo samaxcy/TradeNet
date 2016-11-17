@@ -98,8 +98,8 @@ def main():
 	while exit_code != 0:
 		print("\nTo view , enter TR")
 		print("To validate an email address, enter MB")
-		print("To , enter TW")
-		print(", enter HL")
+		print("To search Twitter for stock related info, enter TW")
+		print("To view top business/financial headlines, enter HL")
 		print("To quit, enter Q")
 		choice = str(input())
 		if choice.upper() == 'TR':
