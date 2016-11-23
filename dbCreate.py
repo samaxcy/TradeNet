@@ -1,6 +1,6 @@
 # THIS SCRIPT IS MEANT TO BE RAN ONCE
 # IT IS FOR PROGRAM SETUP ONLY, BUT CAN BE USED TO RESET DATA
-# creates a tradeNet database, with user and portfolio tables as well as initial dummy data
+# creates a tradeNet database, with user and stock tables as well as initial dummy data
 #
 import sqlite3 as db
 
@@ -36,28 +36,28 @@ users = [(null, 'dylanjaye@gmail.com', 'test', '100.50'),
 # insert users tuples
 c.executemany('INSERT INTO users VALUES (?,?,?,?)', users)
 
-# ################## create portfolio table
-c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='portfolios'")
+# ################## create stocks table
+c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='stocks'")
 tb_exists = c.fetchone()
 
 # if table does not exist, then create
 if not tb_exists:
     # create table
-    c.execute('''CREATE TABLE portfolios
+    c.execute('''CREATE TABLE stocks
                 (pid integer primary key autoincrement, stockName text, shares integer, purchPrice real,
                  email text foreignkey references users(uid)) not null''')
 
 # clear existing rows for creation
-c.execute("DELETE FROM portfolios")
+c.execute("DELETE FROM stocks")
 
 # set up tuples
-portfolios = [(null, 'AAPL', '50', '100.50', 'dylanjaye@gmail.com'),
+stocks = [(null, 'AAPL', '50', '100.50', 'dylanjaye@gmail.com'),
               (null, 'ABC', '120', '140.50', 'dylanjaye@gmail.com'),
               (null, 'JGLC', '900', '5.30', 'samaxcy@gmail.com'),
               (null, 'DOW', '1000', '540.89', 'wallstwolf@gmail.com'), ]
 
-# insert portfolios tuples
-c.executemany('INSERT INTO portfolios VALUES (?,?,?,?,?)', portfolios)
+# insert stocks tuples
+c.executemany('INSERT INTO stocks VALUES (?,?,?,?,?)', stocks)
 
 # save changes
 conn.commit()
