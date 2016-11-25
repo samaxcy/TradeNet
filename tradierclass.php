@@ -21,7 +21,11 @@ $result = curl_exec($ch);
 // Failure
 if ($result === FALSE)
 {
-  echo "cURL Error: " . curl_error($ch);
+  ?>
+	Error occured.
+    <a href = "/Tradier/tradierclass.php"> CLICK HERE TO ENTER SYMBOL AGAIN </a>
+
+  <?php
 }
 else
 {
