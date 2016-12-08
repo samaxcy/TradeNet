@@ -1,3 +1,3 @@
 ��# TradeNet
 
-See Confluence for instructions usage instructions!
+See Confluence for usage instructions!
